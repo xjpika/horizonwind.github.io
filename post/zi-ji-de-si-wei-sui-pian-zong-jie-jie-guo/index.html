@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>自己的思维碎片（总结结果） | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">自己的思维碎片（总结结果）</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <h2 id="碎片1">碎片1</h2>
+<p>带标号划分</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>=</mo><msup><mi>e</mi><mi>f</mi></msup><mo separator="true">,</mo><mi>f</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">g=e^f,f=\ln g
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.093548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span></span></p>
+<h4 id="死亡原因无">死亡原因：无</h4>
+<h2 id="碎片2">碎片2</h2>
+<p>期望问题总结：</p>
+<p>1：转化成 权值和/方案数</p>
+<p>2：直接 dp 转移。</p>
+<p>3：关于操作求期望的答案（贡献法）</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><munder><mo>∑</mo><mi>S</mi></munder><mi>p</mi><mo>(</mo><mtext>能够完成S的概率</mtext><mo>)</mo><mo>×</mo><msub><mi>w</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">=\sum_S p(\text{能够完成S的概率})\times w_S
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.344341em;vertical-align:-1.294336em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000003em;"><span style="top:-1.855664em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.294336em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord text"><span class="mord cjk_fallback">能够完成</span><span class="mord">S</span><span class="mord cjk_fallback">的概率</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>4：如果是连续的，暴力积分（或者几何法）。</p>
+<p>5：整数期望转概率（咕咕咕）</p>
+<h4 id="死亡原因被傻逼骗了">死亡原因：被傻逼骗了。</h4>
+<h2 id="碎片3">碎片3</h2>
+<p>请善于使用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>反演而不一定是性质。</p>
+<p>数论结构题（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>)莫比乌斯反演拆掉</p>
+<p>数论结构题（求和)可以用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>φ</mi></mrow><annotation encoding="application/x-tex">\varphi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">φ</span></span></span></span>拆掉</p>
+<h4 id="死亡原因被傻逼骗了-2">死亡原因：被傻逼骗了。</h4>
+<h2 id="碎片4">碎片4</h2>
+<p>树上高斯消元，一次函数，套倍增。</p>
+<p>也可以维护到父亲的期望次数。</p>
+<h4 id="死亡原因考前用第一种方法花了一个下午写了5k被其他人锤成傻逼">死亡原因：考前用第一种方法花了一个下午写了5k，被其他人锤成傻逼。</h4>
+<h2 id="碎片5">碎片5</h2>
+<p>关于容斥：</p>
+<p>1：正难则反。（事实证明这个东西最通用）</p>
+<p>2：如果是构造满足关于“限制”，容斥</p>
+<h4 id="死亡原因黑暗中的幻想乡不会丢人">死亡原因：黑暗中的幻想乡不会，丢人。</h4>
+<h2 id="碎片6">碎片6</h2>
+<p>删边看成 kruskal 重构树。</p>
+<h4 id="死亡原因考试删边数据结构这么想不想离线套树套树疯了">死亡原因：考试删边数据结构这么想，不想离线，套树套树，疯了。</h4>
+<h2 id="碎片7">碎片7</h2>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><munder><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow></munder><mi>f</mi><mo>(</mo><mo>⌊</mo><mfrac><mi>i</mi><mi>j</mi></mfrac><mo>⌋</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">g(i)=\sum_{j=1} f(\lfloor\frac ij\rfloor)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.750297em;vertical-align:-1.413777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8723309999999997em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.413777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3365200000000002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">i</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mclose">)</span></span></span></span></span></p>
+<p>等价于</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><munder><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow></munder><mi>g</mi><mo>(</mo><mo>⌊</mo><mfrac><mi>i</mi><mi>j</mi></mfrac><mo>⌋</mo><mo>)</mo><mi>μ</mi><mo>(</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(i)=\sum_{j=1} g(\lfloor\frac ij\rfloor) μ(j)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.750297em;vertical-align:-1.413777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8723309999999997em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.413777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3365200000000002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">i</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mclose">)</span><span class="mord mathdefault">μ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span></span></p>
+<h4 id="死亡原因傻逼了直接上计数得到第一个式子没想到直接莫反就有第二个式子">死亡原因：傻逼了，直接上计数得到第一个式子，没想到直接莫反就有第二个式子。</h4>
+<h2 id="碎片8">碎片8</h2>
+<p>构造计数题，可以把抽象的转成序列问题，然后挖掘性质，而不一定直接构造，这样会方便的多。</p>
+<h4 id="死亡原因自己想出了一道傻逼抄题解的题目但是别人想破脑袋都想不出来的我秒出我想破了脑袋才想出来的别人秒出">死亡原因：自己想出了一道傻逼抄题解的题目，但是别人想破脑袋都想不出来的我秒出，我想破了脑袋才想出来的别人秒出。</h4>
+<h2 id="碎片9">碎片9</h2>
+<p>有一些整除分块<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span>算的东西需要更优秀的复杂度，可以考虑枚举约数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msub><mi>log</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>批量处理中间项。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></munderover><mi>f</mi><mo>(</mo><mo>⌊</mo><mfrac><mi>i</mi><mi>j</mi></mfrac><mo>⌋</mo><mo>)</mo><mi>g</mi><mo>(</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{i=1}^n\sum_{j=1}^i f(\lfloor\frac ij\rfloor) g(j)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.2254460000000007em;vertical-align:-1.4137769999999998em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8116690000000006em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4137769999999998em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3365200000000002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">i</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>g</mi><mo>(</mo><mi>j</mi><mo>)</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mi>i</mi></mrow><mi>n</mi></munderover><mi>f</mi><mo>(</mo><mo>⌊</mo><mfrac><mi>i</mi><mi>j</mi></mfrac><mo>⌋</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">=\sum_{j=1}^ng(j)\sum_{j=i}^n f(\lfloor\frac ij\rfloor) 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0651740000000007em;vertical-align:-1.4137769999999998em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000007em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4137769999999998em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000007em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4137769999999998em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3365200000000002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">i</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mclose">)</span></span></span></span></span></p>
+<p>后面可以枚举约数批处理，套一个差分就可以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>ln</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\ln n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>了。</p>
+<p>本质：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mo>⌊</mo><mfrac><mi>n</mi><mi>t</mi></mfrac><mo>⌋</mo><mi mathvariant="normal">≠</mi><mo>⌊</mo><mfrac><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>t</mi></mfrac><mo>⌋</mo><mo>]</mo><mo>=</mo><mo>[</mo><mi>t</mi><mi mathvariant="normal">∣</mi><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[\lfloor\frac{n}t\rfloor ≠\lfloor \frac{n-1}t\rfloor]=[t|n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.095em;vertical-align:-0.345em;"></span><span class="mopen">[</span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">t</span><span class="mord">∣</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span></p>
+<h4 id="死亡原因同7-我是傻逼">死亡原因：同7。我是傻逼。</h4>
+<h2 id="碎片10">碎片10</h2>
+<p>树分治 拆掉可以合并的路径 以及维护桶信息。</p>
+<p>边/点分治，转点权，建虚树是常见操作。</p>
+<h4 id="死亡原因为什么傻逼总是可以在月赛里面见到做过的套路题啊所以这个傻逼到底是不是自己想出来的啊真他妈傻逼恶心-没事现在我也会2棵树了-现在就等傻逼更题解游记如果2天之内不更就别想了吧">死亡原因：为什么傻逼总是可以在月赛里面见到做过的套路题啊，所以这个傻逼到底是不是自己想出来的啊，真他妈傻逼恶心。没事，现在我也会2棵树了。现在就等傻逼更题解游记，如果2天之内不更就别想了吧。</h4>
+<h2 id="碎片11">碎片11</h2>
+<p>图的连通性问题，可以用时间最大生成树，把求值转化为贪心。树连通块计数又可以和<strong>边</strong>扯上关系。</p>
+<p>树（连通）的计数需要用到的条件：点-边=1，这个也可以用来连通块容斥计数。</p>
+<p>维护奇环存在性（二分图）：</p>
+<p>一个可能有用性质：加入一条边如果会让二分图消失，或删除一条边如果会让二分图重现，那么这个边对应所有的环就都是奇环。</p>
+<p>一个可能有用的性质：一个点双（有环）如果不是二分图，那么所有点都被至少一个奇环覆盖。</p>
+<p>所以对于一个只有一堆大偶环的图，我们如果找出了一个奇环那么全盘 ok。所以每一个边维护<strong>一个</strong>以它为最小删除时间的奇环就可以了。</p>
+<p>好多题都是这样，如果要维护一堆东西，就找性质贪心把它变少，再看看可不可以快速维护。</p>
+<h4 id="死亡原因傻逼做过">死亡原因：傻逼做过</h4>
+<h2 id="碎片12">碎片12</h2>
+<p>证明 LCT 维护最大时间生成树，然后每一条边找奇环的方法。</p>
+<h4 id="第一步证明有可能贡献到答案的环一定只有1条非树边">第一步：证明有可能贡献到答案的环一定只有1条非树边</h4>
+<p>反证法。</p>
+<h4 id="第二步证明改变最大时间生成树以后对答案没有影响">第二步：证明改变最大时间生成树以后对答案没有影响</h4>
+<p>具体说，如果修改树边，讨论原来的一个奇环（因为修改，断掉了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>这条边）</p>
+<p>如果新加入的和生成树构成一个奇环，那么这个老的就废了。不需要维护，肯定不优。</p>
+<p>如果是偶环，那么另一边还有一个奇环活着。下面证明另一个奇环比这个消失的优。</p>
+<p>因为那个奇环的最小值&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，所以无论如何怎么说也不会有影响。</p>
+<p>证毕。</p>
+<h4 id="第三步证明不会这样维护不会漏掉奇环">第三步：证明不会这样维护不会漏掉奇环。</h4>
+<p>这其实用到一个结论，就是一个图加入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>这条边的一瞬间出现了奇环，那么包含<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的全都是奇环，就证毕了。</p>
+<p>综上正确性得证。</p>
+<h4 id="死亡原因无-2">死亡原因：无</h4>
+<h2 id="碎片13">碎片13</h2>
+<p><strong>计数题不一定枚举法</strong>，如果枚举不会了</p>
+<p>就尝试直接构造+挖掘性质（增量法）。</p>
+<p>比如二叉堆计数，答案是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>!</mo></mrow><annotation encoding="application/x-tex">n!</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mclose">!</span></span></span></span>，直接从小到大一个一个加点就出来了。。。而套路二叉树dp需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msub><mi>log</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<h4 id="死亡原因妈的傻逼做过的题还真的好一道题枚举搞了半天只会1个log结果发现构造秒出-唉套路总结多了到最后连本行都忘记了">死亡原因：妈的，傻逼做过的题还真的好，一道题枚举搞了半天只会1个log，结果发现构造秒出。唉，套路总结多了，到最后连本行都忘记了。</h4>
+<h2 id="碎片14">碎片14</h2>
+<p>状态数太多了怎么办？考虑有哪些可合并且状态数不多的信息可以快速维护。拆状态。</p>
+<h4 id="死亡原因总结一下一个经典套路">死亡原因：总结一下，一个经典套路。</h4>
+<h2 id="碎片15">碎片15</h2>
+<p>求一些函数映射的值域问题：</p>
+<p>1：区间并。（直接排序，线段树，平衡树，倍增，并查集）</p>
+<p>2：如果断断续续，可以考虑同余。（ABC 的一道题）</p>
+<p>3：带模的话，设相同，化式子，找循环节！（APIO2019 奇怪装置）</p>
+<h4 id="死亡原因居然自己想出来了一道还挺难的题虽然考场被搞了但是还是很有成就感的">死亡原因：居然自己想出来了一道还挺难的题？虽然考场被搞了，但是还是很有成就感的。</h4>
+<h2 id="碎片16">碎片16</h2>
+<p>答案难（或者难快速计算）算，且值域很小（或模数很小）的时候，考虑特殊性质+排除法。</p>
+<p>排除法的一个常用方法：“奇偶性法”</p>
+<h4 id="死亡原因我死了">死亡原因：我死了。</h4>
+<h2 id="碎片17">碎片17</h2>
+<p>枚举约数复杂度爆炸的时候，考虑，积性函数？</p>
+<h4 id="死亡原因我死了-2">死亡原因：我死了。</h4>
+<h2 id="碎片18">碎片18</h2>
+<p>最优化 dp 结合贪心：</p>
+<p>不会算：找性质贪心（或者放弃 dp）然后简化问题 dp</p>
+<p>不会优化：和计数题相似，或者放弃 dp</p>
+<p>各种最大值最小：不一定要二分，可以考虑调整法贪心。</p>
+<h4 id="死亡原因我死了-3">死亡原因：我死了。</h4>
+<h2 id="碎片19">碎片19</h2>
+<p>关于网络流：数据范围小就上</p>
+<p>强制流动：拆点，加费用，最大流</p>
+<p>注意：网络流是一个贪心的过程，不能指望流满</p>
+<h4 id="死亡原因无-3">死亡原因：无。</h4>
+<h2 id="碎片20">碎片20</h2>
+<p>很多数组异或选择：第一步的套路</p>
+<p>自我抵消，化简问题</p>
+<p>比如<a href="https://www.luogu.com.cn/problem/CF1119H">Triple</a> ,<a href="https://www.luogu.com.cn/problem/CF662A">Gambling Nim</a></p>
+<h4 id="死亡原因做一次忘一次我死了">死亡原因：做一次忘一次，我死了</h4>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

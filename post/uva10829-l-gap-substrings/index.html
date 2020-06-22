@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>UVA10829 L-Gap Substrings | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">UVA10829 L-Gap Substrings</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>真的是一道好题啊...不知道为什么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>z</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">czx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">x</span></span></span></span>把这个题咕了。</p>
+<p>蒟蒻深知没图的痛苦...所以我来发良心题解了！求大家点赞！</p>
+<p>做这道题之前，请先做<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">[NOI2016]优秀的拆分</mtext></mrow><annotation encoding="application/x-tex">\texttt{[NOI2016]优秀的拆分}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord texttt">[NOI2016]</span><span class="mord texttt cjk_fallback">优秀的拆分</span></span></span></span></span>。</p>
+<p>以下内容正确性不做证明，证明请看<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">[NOI2016]优秀的拆分</mtext></mrow><annotation encoding="application/x-tex">\texttt{[NOI2016]优秀的拆分}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord texttt">[NOI2016]</span><span class="mord texttt cjk_fallback">优秀的拆分</span></span></span></span></span>题解。<s>懒得写了。</s></p>
+<h3 id="题意">题意</h3>
+<p>多组询问，每一次给定一个串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>和一个整数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>，求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>中有多少个形如<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>UVU</mtext></mrow><annotation encoding="application/x-tex">\text{UVU}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">UVU</span></span></span></span></span>的串，满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext>len</mtext><mi>V</mi></msub><mo>=</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">\text{len}_V=g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">len</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>。</p>
+<hr>
+<p>和优秀的拆分一样，我们用分块枚举<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>UVU</mtext></mrow><annotation encoding="application/x-tex">\text{UVU}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">UVU</span></span></span></span></span>中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>U</mtext></mrow><annotation encoding="application/x-tex">\text{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">U</span></span></span></span></span>的长度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>len</mtext></mrow><annotation encoding="application/x-tex">\text{len}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">len</span></span></span></span></span>。</p>
+<p>这样保证每一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>U</mtext></mrow><annotation encoding="application/x-tex">\text{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">U</span></span></span></span></span>都跨越一个块端点。</p>
+<p>然后不一样的是，我们枚举块左端点为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>，枚举另一个右端点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>+</mo><mtext>len</mtext><mo>+</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">l+\text{len}+g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">len</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>。</p>
+<p>为什么呢？看看图，感性理解一下：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/pic/65388.png" alt="" loading="lazy"></figure>
+<p>红棕色的表示块端点，绿线先表示<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>V</mtext></mrow><annotation encoding="application/x-tex">\text{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">V</span></span></span></span></span>串长度。</p>
+<p>然后我们根据套路求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCP</mtext><mo separator="true">,</mo><mtext>LCS</mtext></mrow><annotation encoding="application/x-tex">\text{LCP},\text{LCS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">LCP</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">LCS</span></span></span></span></span></p>
+<p>分别是红线和蓝线。</p>
+<p>然后我们看看有没有满足条件的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>UVU</mtext></mrow><annotation encoding="application/x-tex">\text{UVU}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">UVU</span></span></span></span></span>串？</p>
+<p>看看下图</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.luogu.com.cn/upload/pic/65383.png" alt="" loading="lazy"></figure>
+<p>红棕框表示<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>U</mtext></mrow><annotation encoding="application/x-tex">\text{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">U</span></span></span></span></span>，绿框表示<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>V</mtext></mrow><annotation encoding="application/x-tex">\text{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">V</span></span></span></span></span>。</p>
+<p>把整个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>UVU</mtext></mrow><annotation encoding="application/x-tex">\text{UVU}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">UVU</span></span></span></span></span>的串移动下，算一算，发现其左端点的取值范围是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo>−</mo><mtext>LCS</mtext><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>l</mi><mo>−</mo><mtext>len</mtext><mo>+</mo><mtext>LCP</mtext><mo>]</mo></mrow><annotation encoding="application/x-tex">[l-\text{LCS}+1,l-\text{len}+\text{LCP}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">LCS</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">len</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">LCP</span></span><span class="mclose">]</span></span></span></span>。不懂的可以看看上图的两个串，其两端的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>U</mtext></mrow><annotation encoding="application/x-tex">\text{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">U</span></span></span></span></span>是相同的。</p>
+<p>那么答案加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCP</mtext><mo>+</mo><mtext>LCS</mtext><mo>−</mo><mtext>len</mtext><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\text{LCP}+\text{LCS}-\text{len}-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">LCP</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">LCS</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">len</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>即可。这道题做完了？</p>
+<h4 id="不">不！</h4>
+<p>还有很多特殊情况和细节！</p>
+<p>比如，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCS</mtext><mo>=</mo><mn>0</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\text{LCS}=0,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">LCS</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mpunct">,</span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCP</mtext><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\text{LCP}=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">LCP</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，那么情况会不一样！</p>
+<p>如图：</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.luogu.com.cn/upload/pic/65386.png" alt="" loading="lazy"></figure>
+<p>此时串的左端点范围就变了。大家可以手玩一下，这里直接给出答案，是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCP</mtext><mo>+</mo><mtext>LCS</mtext><mo>−</mo><mtext>len</mtext></mrow><annotation encoding="application/x-tex">\text{LCP}+\text{LCS}-\text{len}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">LCP</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">LCS</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">len</span></span></span></span></span>。</p>
+<p>为什么多了一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>?</mo><mo>?</mo><mo>?</mo></mrow><annotation encoding="application/x-tex">1???</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mclose">?</span><span class="mclose">?</span><span class="mclose">?</span></span></span></span></p>
+<p>你可以理解为上一种情况左右端点多算了一次...</p>
+<p>当然还有一种情况，就是红线蓝线压根没相交...这时显然无贡献吧...</p>
+<h3 id="小细节">小细节</h3>
+<p>可以正反做两次后缀数组，分别求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCS</mtext></mrow><annotation encoding="application/x-tex">\text{LCS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">LCS</span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCP</mtext></mrow><annotation encoding="application/x-tex">\text{LCP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">LCP</span></span></span></span></span>。</p>
+<p>还有，为了不算<strong>重复</strong>，我们要规定一个块内统计的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>U</mtext></mrow><annotation encoding="application/x-tex">\text{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">U</span></span></span></span></span>串左端点一定要在块内！所以我们求出的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LCS</mtext><mo separator="true">,</mo><mtext>LCP</mtext></mrow><annotation encoding="application/x-tex">\text{LCS},\text{LCP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">LCS</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">LCP</span></span></span></span></span>要对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>len</mtext></mrow><annotation encoding="application/x-tex">\text{len}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">len</span></span></span></span></span>取<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>min</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mop">min</span></span></span></span>...</p>
+<p>代码如下：</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+#define ljc 998244353
+using namespace std;
+#ifdef Fading
+#define gc getchar
+#endif
+#ifndef Fading
+inline char gc(){
+    static char now[1&lt;&lt;16],*S,*T;
+    if (T==S){T=(S=now)+fread(now,1,1&lt;&lt;16,stdin);if (T==S) return EOF;}
+    return *S++;
+}
+#endif
+inline ll read(){
+    register ll x=0,f=1;char ch=gc();
+    while (!isdigit(ch)){if(ch=='-')f=-1;ch=gc();}
+    while (isdigit(ch)){x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-'0';ch=gc();}
+    return (f==1)?x:-x;
+}
+char s[200001];
+int n,m,T,g;
+ll ans; 
+struct SA{
+    int a[100021],c[100021],F[300001][22],sa[100021],ra[100021],hei[100021],pos[100021];
+    inline void clr(int n){
+        memset(sa,0,sizeof(sa));
+    	memset(ra,0,sizeof(ra));
+    	memset(pos,0,sizeof(pos));
+    	memset(a,0,sizeof(a));
+    	memset(hei,0,sizeof(hei));
+    }
+    inline void qsort(int n,int m){
+        for (register int i=0;i&lt;=m;i++) c[i]=0;
+        for (register int i=1;i&lt;=n;i++) c[ra[i]]++;
+        for (register int i=1;i&lt;=m;i++) c[i]+=c[i-1];
+        for (register int i=n;i;i--) sa[c[ra[pos[i]]]--]=pos[i];
+    }
+    inline void GetSA(int n){
+        for (register int i=1;i&lt;=n;i++) ra[i]=a[i],pos[i]=i;
+        int m=100;
+        qsort(n,m);
+        for (register int w=1,p=0;p&lt;n;m=p,w&lt;&lt;=1){
+            p=0;
+            for (register int i=1;i&lt;=w;i++) pos[++p]=n-w+i;
+            for (register int i=1;i&lt;=n;i++){
+                if (sa[i]&gt;w) pos[++p]=sa[i]-w;
+            }
+            qsort(n,m);
+            swap(pos,ra);
+            ra[sa[1]]=p=1;
+            for (register int i=2;i&lt;=n;i++){
+                if (pos[sa[i-1]]==pos[sa[i]]&amp;&amp;pos[sa[i-1]+w]==pos[sa[i]+w]){
+                    ra[sa[i]]=p;
+                }else ra[sa[i]]=++p;
+            }
+        }
+    }
+    inline void GetHeight(int n){
+        register int ans=0;
+        for (register int i=1;i&lt;=n;i++){
+            if (ans) ans--;
+            register int j=sa[ra[i]-1];
+            while (a[j+ans]==a[i+ans]) ans++;
+            hei[ra[i]]=ans;
+        }   
+    }
+    inline void GetST(int n){
+        for (int i=1;i&lt;=n;i++) F[i][0]=hei[i];
+        for (int j=1;j&lt;=20;j++){
+            for (int i=1;i+(1&lt;&lt;j)&lt;=n+1;i++){
+                F[i][j]=min(F[i][j-1],F[i+(1&lt;&lt;(j-1))][j-1]);
+            }
+        }
+    }
+    inline int query(int l,int r){
+        if (l&gt;r) swap(l,r); l++;
+        int k=log2(r-l+1);
+        return min(F[l][k],F[r-(1&lt;&lt;k)+1][k]);
+    }
+}lcs,lcp;
+signed main(){
+	cin&gt;&gt;T;
+    for (int ce=1;ce&lt;=T;ce++){
+        scanf(&quot;%d%s&quot;,&amp;g,s+1);n=strlen(s+1);lcs.clr(n);lcp.clr(n);
+        for (int i=1;i&lt;=n;i++) lcs.a[n-i+1]=lcp.a[i]=s[i]-'a'+1;
+        lcs.GetSA(n);lcp.GetSA(n);ans=0;
+        lcs.GetHeight(n);lcp.GetHeight(n);lcs.GetST(n);lcp.GetST(n);
+        for (int len=1;len&lt;=n;len++){
+            for (int i=1;i&lt;=n;i+=len){
+                int l=i,r=i+len+g;//lcp
+                if (r&gt;n) break;
+                int R=n-l+1,L=n-r+1;//lcs
+                int LCS=min(len,lcs.query(lcs.ra[L],lcs.ra[R]));
+                int LCP=min(len,lcp.query(lcp.ra[l],lcp.ra[r]));
+                int cnt=LCS+LCP-len-(LCS!=0&amp;&amp;LCP!=0)+1;
+                if (cnt&gt;0) ans+=cnt;
+            }
+        }
+        printf(&quot;Case %d: %lld\n&quot;,ce,ans);
+    }
+    return 0;
+}
+
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/noi2019-dan-tiao/">
+              <h3 class="post-title">
+                下一篇：NOI2019 弹跳
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

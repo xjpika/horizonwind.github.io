@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CF444B DZY Loves FFT | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">CF444B DZY Loves FFT</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>正解是暴力可还行</p>
+<p>为什么不试试可以过的 bitset 大暴力呢？</p>
+<p>直接左移，取&amp;，然后暴力遍历就可以了。</p>
+<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mfrac><msup><mi>n</mi><mn>2</mn></msup><mi>ω</mi></mfrac><mo>+</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\frac {n^2}{\omega}+n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.36292em;vertical-align:-0.345em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01792em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">ω</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913142857142857em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
+<pre><code class="language-cpp">
+#include&lt;bits/stdc++.h&gt;
+#define ll long long
+#define ljc 998244353
+using namespace std;
+inline ll read(){
+	ll x=0,f=1;char ch=getchar();
+	while (!isdigit(ch)){if (ch=='-') f=-1;ch=getchar();}
+	while (isdigit(ch)){x=(x&lt;&lt;1)+(x&lt;&lt;3)+ch-'0';ch=getchar();}
+	return x*f;
+}
+bitset&lt;100001&gt; vis,now,cac;
+int a[101010],b[101010],n;
+ll d,x;
+inline ll getNextX() {
+    x = (x * 37 + 10007) % 1000000007;
+    return x;
+}
+inline void initAB() {
+    for (int i = 0; i &lt; n; i = i + 1){
+        a[i] = i + 1;
+    }
+    for (int i = 0; i &lt; n; i = i + 1){
+        swap(a[i], a[getNextX() % (i + 1)]);
+    }
+    for (int i = 0; i &lt; n; i = i + 1){
+        if (i &lt; d)
+            b[i] = 1;
+        else
+            b[i] = 0;
+    }
+    for (int i = 0; i &lt; n; i = i + 1){
+        swap(b[i], b[getNextX() % (i + 1)]);
+    }
+}
+int id[1010101],c[1010101];
+inline bool cmp(int aa,int bb){
+	return a[aa]&gt;a[bb];
+}
+int main(){
+	n=read(),d=read(),x=read();
+	initAB();
+	for (int i=0;i&lt;n;i++){
+		now[i]=b[i];id[i]=i;vis[i]=1;
+	}
+	sort(id,id+n,cmp);
+	for (int i=0;i&lt;n;i++){
+		cac=vis&amp;(now&lt;&lt;id[i]);
+		for (int j=cac._Find_first();j!=cac.size();j=cac._Find_next(j)){
+			vis[j]=0;c[j]=a[id[i]];	
+		}
+	}
+	for (int i=0;i&lt;n;i++){
+		cout&lt;&lt;c[i]&lt;&lt;endl;
+	}
+	return 0;
+}
+</code></pre>
+<p>再讲讲正解。</p>
+<p>考虑到数据随机，那么我们枚举答案，从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>枚举到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mi>s</mi></mrow><annotation encoding="application/x-tex">n-s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>是一个常量。</p>
+<p>如果没有可行的答案，那么就暴力从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>∼</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\sim n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>扫一遍。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/agc005d-~k-perm-counting/">
+              <h3 class="post-title">
+                下一篇：AGC005D ~K Perm Counting
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

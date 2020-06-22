@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>IOI2020国家集训队作业 Part 1[26/50] | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">IOI2020国家集训队作业 Part 1[26/50]</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>✔ 表示打了代码</p>
+<p><s>xxxx</s>表示已经知道解法</p>
+<hr>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF504E">CF504E Misha and LCP on Tree</a></s></li>
+</ul>
+<p>点分树+二分+ST表，一个log</p>
+<p>长链剖分求k祖先也是</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF505E">CF505E Mr. Kitayuta vs. Bamboos</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF506E">CF506E Mr. Kitayuta's Gift</a></p>
+</li>
+</ul>
+<p>不会</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF512D">✔CF512D Fox And Travelling</a></s></li>
+</ul>
+<p>自己做出来了。细节很多的有意思的树形dp，调了很久。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF516D">✔CF516D Drazil and Morning Exercise</a></s></li>
+</ul>
+<p>自己做出来了，Spiders Evil Plan 看了以后我就做出来了。</p>
+<p>2 个性质记录一下：</p>
+<p>最长点一定是直径的 2 个端点。</p>
+<p>树的中心为根，接下来一定越来越长。</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF516E">CF516E Drazil and His Happy Friends</a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF521D">CF521D Shop</a></s></p>
+</li>
+</ul>
+<p>自己做出来了，太难写了，不写了不写了...</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF521E">CF521E Cycling City</a></s></li>
+</ul>
+<p>判断仙人掌裸题，随便切。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF526F">✔CF526F Pudding Monsters</a></s></li>
+</ul>
+<p>经典题，很久以前做的了，当时不会。这里记录一些性质：</p>
+<p>如果两个区间连续那么其交区间也连续。</p>
+<p>排列连续等价于最大-最小+1=r-l+1。</p>
+<p>扫描线+单调栈可以维护前缀最值。</p>
+<p>扫描线可以去掉颜色干扰。</p>
+<p>扫描线可以用插入删除作为代价去掉时间影响。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF526G">CF526G Spiders Evil Plan</a></s></li>
+</ul>
+<p>已经看了题解。。。这个经典问题没想出来，我还是太菜了。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF527E">✔CF527E Data Center Drama</a></s></li>
+</ul>
+<p>sb xht的翻译真的恶心，浪费一题~</p>
+<p>神仙啊。。欧拉回路真的厉害</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF536D">CF536D Tavas in Kansas</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF538G">CF538G Berserk Robot </a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF538H">CF538H Summer Dichotomy</a></s></p>
+</li>
+</ul>
+<p>切了。。。如果没有后面那一个我可能就不会了。。。</p>
+<p>所以，如果出现二选一的，dp 做不出来，图论：2-SAT！</p>
+<p>std 有空看，好像是什么二分图？</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF547D">✔CF547D Mike and Fish</a></s></li>
+</ul>
+<p>不会，丢人。</p>
+<p>nb题。首先点-&gt;行列选择一个贡献-&gt;二分图</p>
+<p><strong>网格图和行列点有关可以建一个二分图</strong></p>
+<p>然后利用构造的二分图2染色使得每个点的两种边个数绝对值相差&lt;=1</p>
+<p>这个就很仙：点奇偶性-&gt;欧拉回路，二分图欧拉回路是左-&gt;右-&gt;左...</p>
+<p>欧拉回路可以抵消边。然后可以给奇点加辅助边，就可以了。</p>
+<p>怎么现在脑子还不如当年9月？</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF547E">✔CF547E Mike and Friends</a></s></li>
+</ul>
+<p>很久以前做的了，建议自己重学一下广义SAM，这个样例很强很强。</p>
+<p>AC自动机做法已经补了。</p>
+<p>AC自动机套路：fail 树。</p>
+<p>AC自动机做子串问题：枚举前缀的后缀+fail树</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF549E">CF549E Sasha Circle</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF553E">CF553E Kyoya and Train</a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF555E">✔CF555E Case of Computer Network</a></s></p>
+</li>
+</ul>
+<p>自己做出来了。一开始写了一个圆方树...果然是自己没想清楚</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF559E">CF559E Gerald and Path</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF566C">CF566C Logistical Questions</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF566E">CF566E Restoring Map</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF568C">CF568C New Language</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF568E">CF568E Longest Increasing Subsequence</a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF571D">CF571D Campus</a></s></p>
+</li>
+</ul>
+<p>kruskal 重构树+主席树，没了。</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF571E">CF571E Geometric Progressions</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF573E">CF573E Bear and Bowling</a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF575A">CF575A Fibonotci</a></s></p>
+</li>
+</ul>
+<p>憨批题</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF575E">CF575E Spectator Riots</a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF575I">CF575I Robots protection</a></s></p>
+</li>
+</ul>
+<p>唉...难受了</p>
+<p>没想出来写了一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>log</mi><mo>⁡</mo><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>被卡了...真的想哭</p>
+<p>现在被卡空间时间。。。浪费了4个小时</p>
+<p>反正先想二维树状数组能维护什么嘛。。。</p>
+<p>可以：维护斜的矩形</p>
+<p>那么容斥一下。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF576D">✔CF576D Flights for Regular Customers</a></s></li>
+</ul>
+<p>自己想出来了。需要 bitset 优化。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF576E">✔CF576E Painting Edges</a></s></li>
+</ul>
+<p>自己想出来了。这个题目很有趣，线段树分治假在线。</p>
+<p>不过分治老写错啊！！！这里记录一下坑点：</p>
+<p>带权并查集维护点到fa节点的距离</p>
+<p>插入放最前面</p>
+<p>lb==rb 时候不要忘记弹栈。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF578E">CF578E Walking!</a></s></li>
+</ul>
+<p>丢人啊。。。</p>
+<p>先找到一个下界再证明是一个解贪心题的好方法。。。</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/CF578F">CF578F Mirror Box</a></li>
+<li><a href="https://www.luogu.com.cn/problem/CF582D">CF582D Number of Binominal Coefficients</a></li>
+<li><s><a href="https://www.luogu.com.cn/problem/CF582E">✔CF582E Boolean Function</a></s></li>
+</ul>
+<p>傻题，复习FWT，然后复习打代码能力。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF585E">✔CF585E Present for Vitalik the Philatelist </a></s></li>
+</ul>
+<p>自己做出来了。不过看了题解 FMT 怎么写。。。难受</p>
+<p>感觉自己搞出了一个新方法。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF585F">✔CF585F Digits of Number Pi</a></s></li>
+</ul>
+<p>唉..随便切，SAM+数位dp，复习SAM ing</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF587D">CF587D Duff in Mafia</a></s></li>
+</ul>
+<p>自己做出来了。。。又是 2-SAT，反正很多关键词“分组”“匹配”“不能在一起”可以考虑这些玩意。。。</p>
+<ul>
+<li><s><a href="https://www.luogu.com.cn/problem/CF587F">CF587F Duff is Mad</a></s></li>
+</ul>
+<p>难受了，以前知道是根号分治然后现在做。。。不过对AC自动机理解更加深入了~</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/CF590E">CF590E Birthday</a></li>
+</ul>
+<p>AC自动机+最长反链，应该是切了，但是我不会求最长反链方案？？？先咕咕咕</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF594E">CF594E Cutting the Line</a></p>
+</li>
+<li>
+<p><s><a href="https://www.luogu.com.cn/problem/CF603E">CF603E Pastoral Oddities</a></s></p>
+</li>
+</ul>
+<p>以前做过类似的cf题</p>
+<p>反正点度数限制-&gt;生成树构造。然后就没了？</p>
+<p>唉，不能整体二分...可以和斜率优化一样CDQ分治，也可以直接大力LCT，但是我写不动了</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/CF605E">CF605E Intergalaxy Trips</a></li>
+</ul>
+<p>不会</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF607E">CF607E Cross Sum</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF611G">CF611G New Year and Cake</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF611H">CF611H New Year and Forgotten Tree</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF613E">CF613E Puzzle Lover</a></p>
+</li>
+</ul>
+<p>漏了一个情况白花 1 个 半小时。。。现在开始快餐做题。。。</p>
+<ul>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF626G">CF626G Raffles</a></p>
+</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/CF627F">CF627F Island Puzzle</a></p>
+</li>
+</ul>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CF516D Drazil and Morning Exercise | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">CF516D Drazil and Morning Exercise</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>这种题第一步一定是先求出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>数组，我用了换根 dp，当然直接 lca 也可以，不过正常实现起来会很慢。</p>
+<p>然后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>很小，直接双指针+LCT，没了。吗？</p>
+<p>众所周知，LCT 的常数大得和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>log</mi><mo>⁡</mo><mn>2</mn></msup><mi>n</mi></mrow><annotation encoding="application/x-tex">\log^2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0928879999999999em;vertical-align:-0.19444em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span>差不多，所以这绝对会被卡，想都不用想，更何况它给了一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>？所以事情并不简单，我们老老实实去挖掘性质。</p>
+<p>接下来有经验的选手可以一眼看出（我想了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>分钟...），一个点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>值一定是在直径<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>个端点处取到的。</p>
+<p>然后看看直径以外的点，发现离直径越远，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>值越大。</p>
+<p>再看看直径上的点。显然树的中心（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>值最小的点）一定在直径上，然后离中心越远，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>值越大。</p>
+<p>以上都可以用反证法证明，这里不再赘述。</p>
+<p>于是我们惊奇地发现如果以中心为根节点，这个树就成了一个小根堆。</p>
+<p>接下来枚举连通块根节点。正好根节点就是子树最小值，因此我们可以贪心地找到所有可行的点，显然这是一个连通块。</p>
+<p>然后这题就切了。</p>
+<p>关于找到可行的点，我选择了堆+启发式合并。这看起来是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>q</mi><mi>n</mi><msubsup><mi>log</mi><mo>⁡</mo><mn>2</mn><mn>2</mn></msubsup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(qn\log^2_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-2.4530000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，实际上每个点最多只会被删除一次，加上启发式合并的继承，这是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>q</mi><mi>n</mi><msub><mi>log</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(qn\log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的，而且常数跑不满。可惜我用了 priority_queue，慢的一批。。。</p>
+<p>代码如下：</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+inline char gc(){
+    static char now[1&lt;&lt;16],*S,*T;
+    if (T==S){T=(S=now)+fread(now,1,1&lt;&lt;16,stdin);if (T==S) return EOF;}
+    return *S++;
+}
+inline ll read(){
+    register ll x=0,f=1;char ch=gc();
+    while (!isdigit(ch)){if(ch=='-')f=-1;ch=gc();}
+    while (isdigit(ch)){x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-'0';ch=gc();}
+    return (f==1)?x:-x;
+}
+int dep[202020],n,head[202020],tot,rt;
+struct edge{
+	int to,nxt;ll dis;
+}g[404040];
+inline void made(int from,int to,ll dis){
+	g[++tot].to=to;g[tot].dis=dis;g[tot].nxt=head[from];head[from]=tot;
+}
+ll dp[202020],fadis[202020],F[202020];
+int id[202020],tid[202020];
+void dfs1(int u,int fa){
+	dp[u]=0;tid[u]=id[u]=0;
+	for (int i=head[u];i;i=g[i].nxt){
+		int v=g[i].to;
+		if (v==fa) continue;
+		fadis[v]=g[i].dis;
+		dfs1(v,u);
+		if (dp[u]&lt;=dp[v]+g[i].dis){
+			tid[u]=id[u];id[u]=v;dp[u]=dp[v]+g[i].dis;
+		}else if (dp[tid[u]]+fadis[tid[u]]&lt;=dp[v]+g[i].dis) tid[u]=v;
+	}
+}
+void dfs2(int u,int fa,ll LAS){
+	F[u]=max(dp[u],LAS);
+	for (int i=head[u];i;i=g[i].nxt){
+		int v=g[i].to;
+		if (v==fa) continue;
+		if (v==id[u]) dfs2(v,u,max(LAS,dp[tid[u]]+fadis[tid[u]])+g[i].dis);
+		else dfs2(v,u,max(LAS,dp[u])+g[i].dis);
+	}
+}
+int ANS,now,tcnt,tpos[202020];
+priority_queue&lt;ll&gt; dl[202020];
+void dfs3(int u,int faa,ll L){
+	tpos[u]=++tcnt;
+	for (int i=head[u];i;i=g[i].nxt){
+		int v=g[i].to;
+		if (v==faa) continue;
+		dfs3(v,u,L);
+		if (dl[tpos[u]].size()&lt;dl[tpos[v]].size()) swap(tpos[u],tpos[v]);
+		while (!dl[tpos[v]].empty()){
+			dl[tpos[u]].push(dl[tpos[v]].top());
+			dl[tpos[v]].pop();
+		}
+	}
+	dl[tpos[u]].push(F[u]);
+	while (F[u]+L&lt;dl[tpos[u]].top()) dl[tpos[u]].pop();
+	ANS=max(ANS,(int)dl[tpos[u]].size());
+}
+signed main(){
+	n=read();
+	for (int i=1;i&lt;n;i++){
+		int x=read(),y=read(),z=read();
+		made(x,y,z);made(y,x,z);
+	}
+	dfs1(1,0);dfs2(1,0,0);
+	F[0]=1e18;
+	for (int i=1;i&lt;=n;i++){
+		if (F[rt]&gt;F[i]) rt=i;
+	}
+	int Q=read();
+	while (Q--){
+		tcnt=ANS=0;
+		while (!dl[tpos[rt]].empty()) dl[tpos[rt]].pop();
+		dfs3(rt,0,read());
+		printf(&quot;%d\n&quot;,ANS);
+	}
+	return 0;
+}
+
+
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/agc021e-ball-eat-chameleons/">
+              <h3 class="post-title">
+                下一篇：AGC021E Ball Eat Chameleons
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

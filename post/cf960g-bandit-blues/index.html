@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CF960G Bandit Blues | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">CF960G Bandit Blues</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p><s>悄悄地说这道题和建筑师是双倍经验</s></p>
+<p>我们先分析一波，相当于我们要求排列数量，满足前缀最大值有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>种，后缀最大值有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>种。</p>
+<h3 id="以最大数为界">以最大数为界</h3>
+<p>可以考虑最大的数，显然这个数一定被算入答案。</p>
+<p>我们以这个最大数为界，维护<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">A+B-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>个连通块。</p>
+<p>连通块是什么意思呢？？？</p>
+<p>就是一个数列，满足第一个数大于其他数。</p>
+<p>比如</p>
+<pre><code>4 1 2 3
+4 3 2 1
+4 2 1 3
+4 1 3 2
+4 2 3 1
+4 3 1 2
+</code></pre>
+<p>然后我们把连通块分到两边，左边<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">A-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个块，右边<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">B-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个块，就好了。</p>
+<p>由于左边的块一定是按照最大数从小到大排序（右边从大到小）的，所以划分的方案数是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>C</mi><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>−</mo><mn>2</mn></mrow><mrow><mi>A</mi><mo>−</mo><mn>1</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">C_{A+B-2}^{A-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.233324em;vertical-align:-0.351862em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.881462em;"><span style="top:-2.406469em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.1031310000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.351862em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>那么怎么求出把一个排列划分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">A+B-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>个连通块的方案数呢？</p>
+<h3 id="连通块leftrightarrow圆排列">连通块<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⇔</mo></mrow><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">⇔</span></span></span></span><a href="https://baike.baidu.com/item/%E5%9C%86%E6%8E%92%E5%88%97">圆排列</a></h3>
+<p>这是为什么呢？</p>
+<p>考虑一个圆排列，从最大数处剪开，就是一个连通块。</p>
+<p>比如</p>
+<pre><code>2 1 4
+2 4 1
+</code></pre>
+<p>是两个圆排列</p>
+<p>剪开后就是</p>
+<pre><code>4 2 1
+4 1 2
+</code></pre>
+<p>可以感性理解一下。</p>
+<p>所以划分的方案数，就是第一类斯特林数！！！</p>
+<p>答案就是(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>是第一类斯特林数)</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>s</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>−</mo><mn>2</mn></mrow></msubsup><msubsup><mi>C</mi><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>−</mo><mn>2</mn></mrow><mrow><mi>A</mi><mo>−</mo><mn>1</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">s_{n-1}^{A+B-2}C_{A+B-2}^{A-1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.233324em;vertical-align:-0.341993em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-2.443561em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.31477em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-2.416338em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.341993em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>左边是把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个数（除了最大数）分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">A+B-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>个连通块的方案数，右边是把连通块分配给左右两边的方案数。</p>
+<p>所以预处理组合数和第一类斯特林数就好啦！</p>
+<p>我使用的是分治 FFT ，如果不会预处理的话可以看我的总结???</p>
+<p>另外如果有RE的情况，你就需要特判！（见代码）</p>
+<p>代码如下：</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ljc 998244353
+#define ll long long
+using namespace std;
+int n,m,k,r[800006],lim;
+ll w[800006],a,b,A[800006],fac[200022],B[800006],inv[800006];
+inline ll fast_pow(ll a,ll b,ll p){
+    ll t=1;a%=p;
+    while (b){
+        if (b&amp;1) t=t*a%p;
+        b&gt;&gt;=1;a=a*a%p;
+    }
+    return t;
+}
+inline void NTT(ll f[],int lim,int id){
+    for (int i=0;i&lt;lim;i++){
+        if (i&lt;r[i]) swap(f[r[i]],f[i]);
+    }
+    w[0]=1;
+    for (int len=1;len&lt;lim;len&lt;&lt;=1){
+        ll gen=fast_pow(3,(ljc-1)/(len&lt;&lt;1)*id+ljc-1,ljc);
+        for (int i=1;i&lt;len;i++) w[i]=w[i-1]*gen%ljc;
+        for (int i=0;i&lt;lim;i+=len&lt;&lt;1){
+            ll *f1=f+i,*f2=f1+len;
+            for (int j=0;j&lt;len;j++){
+                ll x=f1[j]%ljc,y=f2[j]*w[j]%ljc;
+                f1[j]=(x+y)%ljc;f2[j]=(x-y+ljc)%ljc;
+            }
+        }
+    }
+    if (id==1) return;
+    ll Inv=fast_pow(lim,ljc-2,ljc);
+    for (int i=0;i&lt;lim;i++) f[i]=f[i]*Inv%ljc;
+}
+vector&lt;ll&gt; P[2000001];
+inline void CDQ(int lb,int rb,int x){
+    if (lb==rb){
+        P[x].push_back(lb-1);
+        P[x].push_back(1);
+        return ;
+    }
+    int mid=lb+rb&gt;&gt;1;CDQ(lb,mid,x&lt;&lt;1);CDQ(mid+1,rb,x&lt;&lt;1|1);
+    int n=P[x&lt;&lt;1].size(),m=P[x&lt;&lt;1|1].size();
+    for (int i=0;i&lt;n;i++) A[i]=P[x&lt;&lt;1][i];
+    for (int i=0;i&lt;m;i++) B[i]=P[x&lt;&lt;1|1][i];
+    P[x&lt;&lt;1].clear();P[x&lt;&lt;1|1].clear();
+    int lim=1,len=0;
+    while (lim&lt;=(m+n)) lim&lt;&lt;=1,len++;
+    for (int i=n;i&lt;lim;i++) A[i]=0;
+    for (int i=m;i&lt;lim;i++) B[i]=0;
+    for (int i=0;i&lt;lim;i++) r[i]=(r[i&gt;&gt;1]&gt;&gt;1)|((i&amp;1)&lt;&lt;(len-1));
+    NTT(A,lim,1);NTT(B,lim,1);
+    for (int i=0;i&lt;lim;i++) A[i]=A[i]*B[i]%ljc;
+    NTT(A,lim,-1);
+    for (int i=0;i&lt;n+m-1;i++) P[x].push_back(A[i]);
+}
+signed main(){
+	cin&gt;&gt;n&gt;&gt;a&gt;&gt;b;
+	if (n==1&amp;&amp;a==1&amp;&amp;b==1){
+		cout&lt;&lt;1;return 0;
+	}else if (n==1){cout&lt;&lt;0;return 0;}
+	else if (a==0||b==0){cout&lt;&lt;0;return 0;}
+	else if (a+b-2&gt;n){cout&lt;&lt;0;return 0;}
+	CDQ(1,n-1,1);
+	fac[0]=1;
+	for (int i=1;i&lt;=a+b;i++) fac[i]=i*fac[i-1]%ljc; 
+	cout&lt;&lt;P[1][a+b-2]*fac[a+b-2]%ljc*fast_pow(fac[a-1],ljc-2,ljc)%ljc*fast_pow(fac[a+b-2-(a-1)],ljc-2,ljc)%ljc;
+	return 0;
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/snoi2017-li-wu/">
+              <h3 class="post-title">
+                下一篇：SNOI2017 礼物
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

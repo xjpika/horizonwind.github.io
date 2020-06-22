@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>FJOI2016 神秘数 | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">FJOI2016 神秘数</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>讲一个好理解的方法。</p>
+<h3 id="约定变量">约定变量：</h3>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext></mrow><annotation encoding="application/x-tex">\text{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span></span></span></span>为当前集合可以表示的值域为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mtext>pos</mtext><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,\text{pos}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mclose">]</span></span></span></span>。</p>
+<p>我们来挖掘这题的性质。</p>
+<h2 id="1-对于一个新加入的数x">$1:\ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">对</mi><mi mathvariant="normal">于</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">新</mi><mi mathvariant="normal">加</mi><mi mathvariant="normal">入</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">数</mi></mrow><annotation encoding="application/x-tex">对于一个新加入的数</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">于</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">新</span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">入</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">数</span></span></span></span>x$</h2>
+<h3 id="若xleq-textpos1那么textpos可以扩大成textposx">若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>≤</mo><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">x\leq \text{pos}+1,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span></span></span></span>那么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext></mrow><annotation encoding="application/x-tex">\text{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span></span></span></span>可以扩大成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\text{pos}+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span></h3>
+<p>证明：非常简单，对于每一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>∈</mo><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mtext>pos</mtext><mo>]</mo></mrow><annotation encoding="application/x-tex">y\in[1,\text{pos}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mclose">]</span></span></span></span>，有两个选择：</p>
+<p>$y+=x:\ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">值</mi><mi mathvariant="normal">域</mi><mi mathvariant="normal">变</mi><mi mathvariant="normal">为</mi></mrow><annotation encoding="application/x-tex">值域变为</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">域</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">为</span></span></span></span>[1+x,\text{pos}+x]$</p>
+<p>不变$\ :\ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">值</mi><mi mathvariant="normal">域</mi><mi mathvariant="normal">依</mi><mi mathvariant="normal">然</mi><mi mathvariant="normal">为</mi></mrow><annotation encoding="application/x-tex">值域依然为</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">域</span><span class="mord cjk_fallback">依</span><span class="mord cjk_fallback">然</span><span class="mord cjk_fallback">为</span></span></span></span>[1,\text{pos}]$</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>单独为一个数$\ :\ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">值</mi><mi mathvariant="normal">域</mi><mi mathvariant="normal">为</mi></mrow><annotation encoding="application/x-tex">值域为</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">域</span><span class="mord cjk_fallback">为</span></span></span></span>[x,x]$</p>
+<p>三者的并集为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mtext>pos</mtext><mo>+</mo><mi>x</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,\text{pos}+x]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">]</span></span></span></span>。</p>
+<h3 id="若xtextpos1那么无法扩大">若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>&gt;</mo><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">x&gt;\text{pos}+1,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span></span></span></span>那么无法扩大</h3>
+<p>比较显然，因为多了一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>依旧拼不出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo>(</mo><mi>x</mi><mo>&gt;</mo><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\text{pos}+1(x&gt;\text{pos}+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>这个性质有什么用呢？</p>
+<h2 id="2-对于区间lr">$2:\ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">对</mi><mi mathvariant="normal">于</mi><mi mathvariant="normal">区</mi><mi mathvariant="normal">间</mi></mrow><annotation encoding="application/x-tex">对于区间</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">于</span><span class="mord cjk_fallback">区</span><span class="mord cjk_fallback">间</span></span></span></span>[l,r]$</h2>
+<p>我们把区间里的数从小到大拿出来。排序，设为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>a</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">a_1,a_2,...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span></p>
+<h3 id="必有a_11">必有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_1=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></h3>
+<p>显然。。。</p>
+<p>我们一个一个数从小到大加入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo></mrow><annotation encoding="application/x-tex">(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span></span></span></span>先加入所有的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">1,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span></span></span></span>随后是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2...</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">2...)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mclose">)</span></span></span></span>。</p>
+<p>我们设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>mx</mtext></mrow><annotation encoding="application/x-tex">\text{mx}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mx</span></span></span></span></span>为<strong>已经在这个集合内数的上界</strong>。</p>
+<p>我们要新加入的数一定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∈</mo><mo>[</mo><mtext>mx</mtext><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">\in [\text{mx}+1,\text{pos}+1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord text"><span class="mord">mx</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
+<p>因为之前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mtext>mx</mtext><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,\text{mx}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">mx</span></span><span class="mclose">]</span></span></span></span>里的所有数都加入过了，继续加入就重复了！</p>
+<p>而且根据刚才讲的，加入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mtext>pos</mtext><mo>+</mo><mn>2</mn><mo separator="true">,</mo><mo>+</mo><mi mathvariant="normal">∞</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[\text{pos}+2,+\infty]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">+</span><span class="mord">∞</span><span class="mclose">]</span></span></span></span>对答案无贡献。</p>
+<p>我们可以把这个值域内所有的数全部加入，设这个值域<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mtext>mx</mtext><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[\text{mx}+1,\text{pos}+1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord text"><span class="mord">mx</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>的所有数和为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>Sum</mtext><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\text{Sum},</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">Sum</span></span><span class="mpunct">,</span></span></span></span>整个区间就可以扩大。</p>
+<p>此时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>mx</mtext></mrow><annotation encoding="application/x-tex">\text{mx}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mx</span></span></span></span></span>变为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext><mo>+</mo><mn>1</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\text{pos}+1,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span></span></span></span>而原来的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext></mrow><annotation encoding="application/x-tex">\text{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span></span></span></span>则要加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>Sum</mtext><mo>(</mo></mrow><annotation encoding="application/x-tex">\text{Sum}(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Sum</span></span><span class="mopen">(</span></span></span></span>就是刚才讲的性质<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>)</mo></mrow><annotation encoding="application/x-tex">)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">)</span></span></span></span></p>
+<p>如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>Sum</mtext><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\text{Sum}=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Sum</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>答案就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\text{pos}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<p>求值域和可以用权值线段树。然而这个是区间查询，所以我们使用主席树。</p>
+<h3 id="时间复杂度分析">时间复杂度分析</h3>
+<p>发现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext></mrow><annotation encoding="application/x-tex">\text{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span></span></span></span>的变换幅度很大，每一次加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mtext>pos</mtext><mo mathvariant="normal">′</mo></msup><mo>+</mo><mn>1</mn><mo>(</mo></mrow><annotation encoding="application/x-tex">\text{pos}&#x27;+1(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.946332em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord text"><span class="mord">pos</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mopen">(</span></span></span></span>上一次的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext><mo>)</mo></mrow><annotation encoding="application/x-tex">\text{pos})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mclose">)</span></span></span></span></p>
+<p>这是一个倍增的复杂度。所以复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>l</mi><mi>o</mi><msubsup><mi>g</mi><mn>2</mn><mn>2</mn></msubsup><mi>A</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(mlog_{2}^2A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mord mathdefault">A</span><span class="mclose">)</span></span></span></span></p>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>数组的最大值。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+inline char gc(){
+    static char now[1&lt;&lt;16],*S,*T;
+    if (T==S){T=(S=now)+fread(now,1,1&lt;&lt;16,stdin);if (T==S) return EOF;}
+    return *S++;
+}
+inline ll read(){
+    register ll x=0,f=1;char ch=gc();
+    while (!isdigit(ch)){if(ch=='-')f=-1;ch=gc();}
+    while (isdigit(ch)){x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-'0';ch=gc();}
+    return (f==1)?x:x;
+}
+int cnt,root[1000001],n,m;
+const int inf=1e9;
+struct node{
+	int l,r,sum;
+}seg[5000001];
+#define mid ((lb+rb)&gt;&gt;1)
+void update(int &amp;rt,int lb,int rb,int x){
+	seg[++cnt]=seg[rt];rt=cnt;seg[rt].sum+=x;
+	if (lb==rb) return;
+	(mid&gt;=x?update(seg[rt].l,lb,mid,x):update(seg[rt].r,mid+1,rb,x));
+}
+int query(int i,int j,int lb,int rb,int l,int r){
+	if (!(seg[j].sum-seg[i].sum)||r&lt;lb|rb&lt;l) return 0;
+	if (lb&gt;=l&amp;&amp;rb&lt;=r) return (seg[j].sum-seg[i].sum);
+	return query(seg[i].l,seg[j].l,lb,mid,l,r)+query(seg[i].r,seg[j].r,mid+1,rb,l,r);
+}
+int main(){
+	n=read();
+	for (int i=1;i&lt;=n;i++){
+		root[i]=root[i-1];
+		update(root[i],1,inf,read());
+	}
+	m=read();
+	while (m--){
+		int l=read(),r=read();
+		int mx=0,pos=0;
+		for (int Sum;;){
+			Sum=query(root[l-1],root[r],1,inf,mx+1,pos+1);
+			if (!Sum) break;
+			mx=pos+1;pos+=Sum;
+		}
+		printf(&quot;%d\n&quot;,pos+1);
+	}
+	return 0;
+} 
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/hnoi2019-bai-tu-zhi-wu/">
+              <h3 class="post-title">
+                下一篇：HNOI2019 白兔之舞
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

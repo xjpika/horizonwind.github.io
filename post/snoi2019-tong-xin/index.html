@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>SNOI2019 通信 | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">SNOI2019 通信</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>这算第一次自己想出网络流？？？</p>
+<p>自己想出来黑题就是爽！<s>虽然调试了2个小时</s></p>
+<p>是时候去学学新姿势了。。。</p>
+<p>好像我最慢跑了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4985</mn><mi>m</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">4985ms...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">9</span><span class="mord">8</span><span class="mord">5</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span>还加了 luogu O2,$一大堆头文件</p>
+<p>不管了我们开始思考！（以下是我的所有心路历程）</p>
+<h3 id="算法1">算法1</h3>
+<p>我会 dp!</p>
+<p>期望得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">:0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></p>
+<h3 id="算法2">算法2</h3>
+<p>我会搜索!</p>
+<p>期望得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">:10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span></p>
+<h3 id="算法3">算法3</h3>
+<p>这个题为什么不可以 dp 呢？？？</p>
+<p>因为我们没有办法记录一个点是否已经被连接的状态。</p>
+<p>所以...</p>
+<p>我会状压 dp!</p>
+<p>期望得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">:20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span></span></span></span></p>
+<h3 id="算法4">算法4</h3>
+<p>一个点只能连接<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个子节点，这个限制有点像流量。。。</p>
+<p>数据范围：woc怎么这么小呢?那我跑网络流好不好啊？</p>
+<p>不过好像求的是最小花费，那我跑费用流好不好啊？</p>
+<p>一个点只能连接<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个子节点，我们就拆点，流量设为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>就好了。</p>
+<p>设原点为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>，汇点为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>,一个点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>拆成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo separator="true">,</mo><mi>i</mi><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">i,i+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></p>
+<p>考虑一种连边方式：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mtext> </mtext><mo>−</mo><mo>&gt;</mo><mtext> </mtext><mn>1..</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">s\ -&gt;\ 1..n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">s</span><span class="mspace"> </span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace"> </span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault">n</span></span></span></span>，流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，费用为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1..</mn><mi>n</mi><mtext> </mtext><mo>−</mo><mo>&gt;</mo><mtext> </mtext><mi>t</mi></mrow><annotation encoding="application/x-tex">1..n\ -&gt;\ t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault">n</span><span class="mspace"> </span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace"> </span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>，流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，费用为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span></span></span></span>。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mtext> </mtext><mo>−</mo><mo>&gt;</mo><mtext> </mtext><mi>j</mi><mo>+</mo><mi>n</mi><mtext>  </mtext><mo>(</mo><mi>i</mi><mo>&gt;</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">i\ -&gt;\ j+n\ \ (i&gt;j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace"> </span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace"> </span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mspace"> </span><span class="mspace"> </span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> 流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，费用为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><msub><mi>a</mi><mi>i</mi></msub><mo>−</mo><msub><mi>a</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|a_i-a_j|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord">∣</span></span></span></span>。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1..2</mn><mi>n</mi><mtext> </mtext><mo>−</mo><mo>&gt;</mo><mtext> </mtext><mi>t</mi></mrow><annotation encoding="application/x-tex">n+1..2n\ -&gt;\ t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord">2</span><span class="mord mathdefault">n</span><span class="mspace"> </span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace"> </span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>，流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，费用为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<p>跑最小费用最大流...</p>
+<p>期望得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mn>60</mn></mrow><annotation encoding="application/x-tex">:60</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">0</span></span></span></span></p>
+<p>实际得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">:80</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord">0</span></span></span></span></p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+int tot,pre[100001],maxflow,vis[100001],last[100001],flow[100001],head[100001];
+int n,m,W,s,t;
+ll dep[100001],a[100001],mincost;
+struct node{
+    int to,next,dis;
+    ll cot;
+}g[100005];
+inline void bud(int from,int to,int dis,ll cot){
+    g[++tot].to=to;g[tot].dis=dis;g[tot].cot=cot;
+    g[tot].next=head[from];head[from]=tot;
+}
+inline void made(int from,int to,int dis,ll cot){
+    bud(from,to,dis,cot);bud(to,from,0,-cot);
+}
+#define gc getchar
+inline ll read(){
+    ll x=0,f=1;char ch=gc();
+    while (!isdigit(ch)) {if (ch=='-') f=-1;ch=gc();}
+    while (isdigit(ch)) x=x*10+ch-'0',ch=gc();
+    return x*f;
+}
+inline bool spfa(int s,int t){
+    for (register int i=s;i&lt;=t;i++){
+        flow[i]=dep[i]=999999999;vis[i]=0;
+    }
+    queue&lt;int&gt; dl;
+    while (!dl.empty()) dl.pop();
+    dl.push(s);vis[s]=1;pre[t]=-1;dep[s]=0;
+    while (!dl.empty()){
+        register int u=dl.front();dl.pop();vis[u]=0;
+        for (register int i=head[u];i!=-1;i=g[i].next){
+            register int v=g[i].to;
+            if (g[i].dis&gt;0&amp;&amp;dep[v]&gt;dep[u]+g[i].cot){
+                dep[v]=dep[u]+g[i].cot;
+                pre[v]=u;last[v]=i;
+                flow[v]=min(flow[u],g[i].dis);
+                if (!vis[v]){
+                	dl.push(v);
+                	vis[v]=1;
+                }
+            }
+        }
+    }
+    return pre[t]!=-1;
+}
+inline void MCMF(){
+    while (spfa(s,t)){
+        maxflow+=flow[t];
+        mincost+=1LL*flow[t]*dep[t];
+        register int x=t;
+        while (x!=s){
+            g[last[x]].dis-=flow[t];
+            g[last[x]^1].dis+=flow[t];
+            x=pre[x];
+        }
+    }
+}
+int main(){
+    n=read();W=read();tot=-1;memset(head,-1,sizeof(head));
+    s=0,t=2*n+1;
+    for (int i=1;i&lt;=n;i++) made(s,i,1,0);
+    for (int i=1;i&lt;=n;i++) made(i,t,1,W);
+    for (int i=n+1;i&lt;=2*n;i++) made(i,t,1,0);
+    for (int i=1;i&lt;=n;i++){
+        a[i]=read();
+        for (int j=1;j&lt;i;j++){
+            made(i,j+n,1,abs(a[i]-a[j]));
+        }
+    }
+    MCMF();
+    printf(&quot;%lld&quot;,mincost);
+}
+</code></pre>
+<h3 id="算法5">算法5</h3>
+<p>如果我在考场的话我就不会去想了，因为想到了正解也毫无意义（就多二三十分）</p>
+<p>然后我就考虑为什么只有一点点分：</p>
+<p>最坏时间复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>m</mi><mi>f</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nmf)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>是最大流，可以当作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>算。</p>
+<p>但是我们要暴力枚举两个点连边，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>达到了惊人的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>!</p>
+<p>然后怎么办呢？</p>
+<p>考虑优化建图。线段树？倍增？</p>
+<p>我先往区间线段树上思考。可以给每一个线段树的叶子节点向出点连边，流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∞</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\infty,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord">∞</span><span class="mpunct">,</span></span></span></span>花费为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mtext>LeftBound</mtext></msub></mrow><annotation encoding="application/x-tex">a_{\text{LeftBound}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">LeftBound</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（就是这个叶子节点的编号）。第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个点暴力向<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1..</mn><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1..i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>连边的话就从入点向线段树节点连流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∞</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\infty,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord">∞</span><span class="mpunct">,</span></span></span></span>花费为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">-a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的边，不就抵消了吗？</p>
+<p>但是恶心的来了：有绝对值。</p>
+<p>那么区间线段树直接去世了。然后就去想权值线段树。</p>
+<p>我们可以维护一棵权值线段树，叶子节点也一样，向出点权值为叶子节点下标的所有出点连流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∞</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\infty,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord">∞</span><span class="mpunct">,</span></span></span></span>花费为叶子节点下标的边（离散化）。</p>
+<p>第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个点暴力向<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1..</mn><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1..i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>连边的话<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3em;vertical-align:-0.19444em;"></span><span class="mpunct">,</span></span></span></span>可以和区间线段树一样，直接向所有的点连接流量为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∞</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\infty,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord">∞</span><span class="mpunct">,</span></span></span></span>花费为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">-a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的边？？？</p>
+<p>还是不对啊，如果这么操作的话只有权值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>max</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">a_i...\max</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">max</span></span></span></span>（最大值）的点才连到了正确的边！权值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>min</mi><mo>⁡</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msub><mi>a</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\min..a_i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.81786em;vertical-align:-0.15em;"></span><span class="mop">min</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的点全部成为了负边。</p>
+<p>怎么办呢？我就想到可以开两棵线段树！一棵叶子节点连接花费为正的边，一棵连接负的就好了！</p>
+<p>可以感性理解一下，那么这道题就做完了！！！</p>
+<p><a href="https://www.luogu.org/paste/p7kl9u6b">代码</a></p>
+<h2 id="textttall-last"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">ALL</mtext><mtext> </mtext><mtext mathvariant="monospace">LAST</mtext></mrow><annotation encoding="application/x-tex">\texttt{ALL LAST}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">ALL LAST</span></span></span></span></span></h2>
+<p>具体实现我拆点的时候为了图方便把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1..</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">1..n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault">n</span></span></span></span>设为出点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1..2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">n+1..2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord">2</span><span class="mord mathdefault">n</span></span></span></span>设为入点了。</p>
+<p>这就是 SDOI2009 晨跑啊，我做的时候居然没有看出来。。。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/tjoi2019-chang-tiao-rap-he-lan-qiu/">
+              <h3 class="post-title">
+                下一篇：TJOI2019 唱、跳、rap和篮球
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

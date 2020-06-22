@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>SHOI2015 脑洞治疗仪 | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">SHOI2015 脑洞治疗仪</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <h3 id="前言">前言</h3>
+<p><s>线段树这么好为什么要写珂朵莉树呢？还会被卡</s></p>
+<p>线段树+线段树上二分。</p>
+<p>写了两个小时才写出来...</p>
+<p>而且我想出的算法时间复杂度是单次<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的，而不是均摊的。</p>
+<p>其他三篇题解都是均摊复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。。。</p>
+<p>所以我来发一篇好啦！</p>
+<h3 id="约定">约定</h3>
+<p>设脑浆为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，脑洞为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<hr>
+<p>首先我们要<strong>理解</strong>线段树。</p>
+<p>然后看看第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>个操作怎么写。</p>
+<p>我们维护线段树上区间的信息有：</p>
+<ul>
+<li>
+<p>区间有多少个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，记为 x</p>
+</li>
+<li>
+<p><strong>最多</strong>有多少个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，记为 ans。</p>
+</li>
+<li>
+<p>从左端点向右延伸<strong>最多</strong>有多少个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，记为 lmax。</p>
+</li>
+<li>
+<p>从右端点向左延伸<strong>最多</strong>有多少个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，记为  rmax。</p>
+</li>
+<li>
+<p>区间长度，记为 len</p>
+</li>
+</ul>
+<p>如何合并两个区间（从左到右为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span></span></span></span>）？设最后合成的区间为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></p>
+<pre><code class="language-cpp">
+c.x=a.x+b.x
+
+c.len=a.len+b.len
+
+c.lmax=(a.len==a.lmax)?a.len+b.lmax:a.lmax
+
+c.rmax=(b.len==b.rmax)?b.len+a.rmax:b.rmax
+
+c.ans=max{a.rmax+b.lmax,a.ans,b.ans,c.lmax,c.rmax}
+
+</code></pre>
+<p>那么就可以像<a href="https://www.luogu.org/problemnew/show/SP1043">GSS1</a>一样做了。</p>
+<hr>
+<p>第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个操作很简单就是区间赋值，打懒标记即可。</p>
+<p>第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>个操作，就是先挖空（全部变成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>）<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>l</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>1</mn></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">[l_1,r_1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，并求出区间有多少个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>（可以一个函数完成）</p>
+<p>然后把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>l</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>2</mn></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">[l_2,r_2]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>按顺序填充，能填多少填多少，填满了就扔掉多余的脑浆。</p>
+<p>怎么按顺序填充呢？</p>
+<p>如果脑浆多余了，就直接区间覆盖（全部覆盖成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>）。</p>
+<p>如果脑浆没有剩余呢？注意到如果这个位置有脑浆就不需要覆盖，这怎么搞？</p>
+<p>发现可以二分。直接二分挖出的脑浆最多可以覆盖到的位置。时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msubsup><mi>log</mi><mo>⁡</mo><mn>2</mn><mn>2</mn></msubsup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log_2^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-2.4530000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>当然这是过不去的。所以我们需要更优的解法。</p>
+<p>我们先把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>l</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>2</mn></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">[l_2,r_2]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>扔到线段树上，让整个区间根据线段树结构分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log_2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>个区间。</p>
+<p>发现这些区间有些是被<strong>完全修补</strong>的，有些区间没有被修补。</p>
+<p>一定有一个区间，满足它的下一个区间没有被修补（如果不存在下一个区间也算），而它自己被<strong>部分修补</strong>（可能正好被填满）</p>
+<p>求出这个区间。</p>
+<p>然后在这个区间的线段树上二分，找到最后修补的那个点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>pos</mtext></mrow><annotation encoding="application/x-tex">\text{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span></span></span></span>。</p>
+<p>这可以用类似第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>小的方法进行。</p>
+<p>最后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>l</mi><mn>2</mn></msub><mo separator="true">,</mo><mtext>pos</mtext><mo>]</mo></mrow><annotation encoding="application/x-tex">[l_2,\text{pos}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">pos</span></span><span class="mclose">]</span></span></span></span>全部覆盖上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>即可。</p>
+<p>常数还行吧。具体看注释。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+#define ljc 998244353
+using namespace std;
+#ifdef Fading
+#define gc getchar
+#endif
+#ifndef Fading
+inline char gc(){
+    static char now[1&lt;&lt;16],*S,*T;
+    if (T==S){T=(S=now)+fread(now,1,1&lt;&lt;16,stdin);if (T==S) return EOF;}
+    return *S++;
+}
+#endif
+inline ll read(){
+    register ll x=0,f=1;char ch=gc();
+    while (!isdigit(ch)){if(ch=='-')f=-1;ch=gc();}
+    while (isdigit(ch)){x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-'0';ch=gc();}
+    return (f==1)?x:-x;
+}
+struct node{
+    int x,lmax,rmax,ans,len;
+}seg[4000001];
+inline node init(int x,int y,int a,int b,int xx){
+    return (node){x,y,a,b,xx};
+}
+inline node operator + (const node &amp;a,const node &amp;b){//合并区间。
+    node c=init(a.x+b.x,(a.len==a.lmax)?a.len+b.lmax:a.lmax,(b.len==b.rmax)?b.len+a.rmax:b.rmax,
+    max(a.rmax+b.lmax,max(a.ans,b.ans)),a.len+b.len);
+    c.ans=max(c.ans,max(c.lmax,c.rmax));
+    return c;
+}
+int Len[4000001],LB[4000001],RB[4000001],fg[4000001],n,m,Q;
+#define mid ((lb+rb)&gt;&gt;1)
+inline void pushup(int rt){
+    seg[rt]=seg[rt&lt;&lt;1]+seg[rt&lt;&lt;1|1];
+}
+void build(int rt,int lb,int rb){
+    fg[rt]=-1;LB[rt]=lb;RB[rt]=rb;
+    if (lb==rb) return (void)(seg[rt]=init(1,0,0,0,1));
+    build(rt&lt;&lt;1,lb,mid);build(rt&lt;&lt;1|1,mid+1,rb);
+    pushup(rt);Len[rt]=Len[rt&lt;&lt;1]+Len[rt&lt;&lt;1|1];
+}
+inline void pushdown(int rt,int lb,int rb){
+    if (~fg[rt]){
+        int ls=rt&lt;&lt;1,rs=rt&lt;&lt;1|1;
+        fg[ls]=fg[rs]=fg[rt];
+        seg[ls]=init(fg[rt]*(mid-lb+1),(1-fg[rt])*(mid-lb+1),(1-fg[rt])*(mid-lb+1),(1-fg[rt])*(mid-lb+1),mid-lb+1);
+        seg[rs]=init(fg[rt]*(rb-mid),(1-fg[rt])*(rb-mid),(1-fg[rt])*(rb-mid),(1-fg[rt])*(rb-mid),rb-mid);
+        fg[rt]=-1;
+    }
+}
+ll dig(int rt,int lb,int rb,int l,int r,int x){
+//掏空这个区间并返回有多少个1。
+    if (lb&gt;r||rb&lt;l) return 0;
+    if (lb&gt;=l&amp;&amp;rb&lt;=r){
+        int tmp=seg[rt].x;fg[rt]=x;
+        seg[rt]=init(x*(rb-lb+1),(1-x)*(rb-lb+1),(1-x)*(rb-lb+1),(1-x)*(rb-lb+1),rb-lb+1);
+        return tmp;
+    }
+    pushdown(rt,lb,rb);
+    int ans=dig(rt&lt;&lt;1,lb,mid,l,r,x)+dig(rt&lt;&lt;1|1,mid+1,rb,l,r,x);
+    pushup(rt);return ans;
+}
+int dl[101],tot;
+void Get(int rt,int lb,int rb,int l,int r){//拆分区间。
+    if (lb&gt;r||rb&lt;l) return;
+    if (lb&gt;=l&amp;&amp;rb&lt;=r) return (void)(dl[++tot]=rt);
+    pushdown(rt,lb,rb);
+    Get(rt&lt;&lt;1,lb,mid,l,r);Get(rt&lt;&lt;1|1,mid+1,rb,l,r);
+}
+node query(int rt,int lb,int rb,int l,int r){//3操作。
+    if (lb&gt;r||rb&lt;l) return init(seg[rt].len,0,0,0,seg[rt].len);
+    if (lb&gt;=l&amp;&amp;rb&lt;=r) return seg[rt];
+    pushdown(rt,lb,rb);
+    return query(rt&lt;&lt;1,lb,mid,l,r)+query(rt&lt;&lt;1|1,mid+1,rb,l,r);
+}
+int findit(int rt,int lb,int rb,int x,int sz){//线段树上二分找点。
+    pushdown(rt,lb,rb);
+    if (sz+seg[rt].len-seg[rt].x==x) return rb;
+    if (sz+(seg[rt&lt;&lt;1].len-seg[rt&lt;&lt;1].x)&lt;x) 
+        return findit(rt&lt;&lt;1|1,mid+1,rb,x,sz+seg[rt&lt;&lt;1].len-seg[rt&lt;&lt;1].x);
+        //左区间不够用，去右区间找。
+    else return findit(rt&lt;&lt;1,lb,mid,x,sz);//左区间够用，去左区间找。
+}
+signed main(){
+    n=read();m=read();
+    build(1,1,n);
+    while (m--){
+        int opt=read(),l=read(),r=read();
+        if (opt==0){
+            dig(1,1,n,l,r,0);
+        }else if (opt==1){
+            int brain=dig(1,1,n,l,r,0);
+            int L=read(),R=read();
+            if (!brain) continue;
+            tot=0,Get(1,1,n,L,R);
+            int sum=0,maxrt;bool flag=0;
+            for (int i=1;i&lt;=tot;i++){
+            	int rt=dl[i];
+                sum+=seg[rt].len-seg[rt].x;
+                if (sum&gt;=brain){//找区间。
+                    sum=brain-sum+seg[rt].len-seg[rt].x;
+                    maxrt=dl[i];flag=1;break;
+                }
+            }
+            if (!flag) dig(1,1,n,L,R,1);
+            else{
+                int ansR=findit(maxrt,LB[maxrt],RB[maxrt],sum,0);
+                dig(1,1,n,L,ansR,1);
+            }			
+        }else{
+            printf(&quot;%d\n&quot;,query(1,1,n,l,r).ans);
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/usaco10mar-barn-allocation/">
+              <h3 class="post-title">
+                下一篇：USACO10MAR Barn Allocation
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

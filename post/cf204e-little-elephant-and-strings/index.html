@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CF204E Little Elephant and Strings | HorizonWind</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://horizonwind2004.github.io/favicon.ico?v=1592816201009">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://horizonwind2004.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://horizonwind2004.github.io">
+        <img class="avatar" src="https://horizonwind2004.github.io/images/avatar.png?v=1592816201009" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://horizonwind2004.github.io">
+        <h1 class="site-title">HorizonWind</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">CF204E Little Elephant and Strings</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+            
+          </div>
+          <div class="post-content">
+            <p>可能是我对广义后缀自动机还是不太熟练吧，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>分钟想到正解但是细节写了很久很久...</p>
+<p>非常套路的一道题，不知道为什么大家都写后缀数组...</p>
+<p>我们建出广义后缀自动机，然后我们求出一个节点被多少个字符串覆盖了多少次，暴力跳 parent 树就好了。</p>
+<p>有人问为什么不会被卡成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>？我们只要再开一个数组记录这个点上一次被哪一个字符串覆盖，暴力跳的时候如果这个节点已经被这个字符串覆盖过了，就不用跳了。根据广义后缀自动机的性质可以确定复杂度是正确的。</p>
+<p>upd：时间复杂度好像是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+<p><s>有本事你们把我卡掉</s></p>
+<p>最后我们考虑一个串的前缀节点，分类讨论：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">1:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 如果这个节点被覆盖次数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≥</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\geq k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，贡献就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext>len</mtext><mi>u</mi></msub><mo>−</mo><msub><mtext>len</mtext><mrow><mi>p</mi><msub><mi>a</mi><mi>u</mi></msub></mrow></msub></mrow><annotation encoding="application/x-tex">\text{len}_u-\text{len}_{pa_u}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">len</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord text"><span class="mord">len</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">2:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 如果这个节点被覆盖次数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">&lt;k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，也许他的 parent 祖先中有覆盖次数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≥</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\geq k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的节点。暴力跳 parent 统计贡献，这个可以预处理出来。</p>
+<p>其实这是一道水题，我一开始想复杂了。。。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+#define int long long
+#define ljc 998244353
+using namespace std;
+inline ll read(){
+    ll x=0,f=1;char ch=getchar();
+    while (!isdigit(ch)){if (ch=='-') f=-1;ch=getchar();};
+    while (isdigit(ch)){x=(x&lt;&lt;1)+(x&lt;&lt;3)+ch-48;ch=getchar();};
+    return x*f;
+}
+inline char getch(){
+    char ch=getchar();
+    while (!isalpha(ch)) ch=getchar();
+    return ch;
+}
+int n,m,len[1000001];
+char ss[1000001];
+namespace sam{
+    int cnt,last,Vis[500001],fg[500001],las[500001],pa[500001],c[500001],len[500001];
+    int g[500001][26];
+    inline void INIT(){
+        cnt=last=1;
+    }
+    inline void insert(int s,int tr){
+        if (g[last][s]&amp;&amp;len[last]+1==len[g[last][s]]){
+            last=g[last][s];return;
+        }
+        int pos=last;last=++cnt;int newp=cnt;
+        len[newp]=len[pos]+1;
+        for (;pos&amp;&amp;!g[pos][s];pos=pa[pos]) g[pos][s]=newp;
+        if (!pos) pa[newp]=1;
+        else{
+            int posx=g[pos][s];
+            if (len[posx]==len[pos]+1) pa[newp]=posx;
+            else{
+                int q=++cnt;len[q]=len[pos]+1;
+                for (int i=0;i&lt;26;i++) g[q][i]=g[posx][i]; 
+                pa[q]=pa[posx];pa[posx]=pa[newp]=q;
+                for (;pos&amp;&amp;g[pos][s]==posx;pos=pa[pos]) g[pos][s]=q;
+            }
+        }
+    }
+    inline void update(int x,int y){
+        for (;x&amp;&amp;las[x]!=y;x=pa[x]) fg[x]++,las[x]=y;
+    }
+    void dfs(int u){
+    	if (u==1||Vis[u]) return;
+    	Vis[u]=1; dfs(pa[u]);c[u]+=c[pa[u]];
+    }
+    inline void doit(){
+        for (int i=1;i&lt;=cnt;i++){
+    		c[i]=len[i]-len[pa[i]];
+    		if (fg[i]&lt;m) c[i]=0;
+        }
+        for (int i=1;i&lt;=cnt;i++) dfs(i);
+    }
+}
+vector&lt;char&gt; S[100021];
+signed main(){
+    n=read(),m=read();
+    int tot=0,tt=0;
+    sam::INIT();
+    for (int i=1;i&lt;=n;i++){
+    	scanf(&quot;%s&quot;,ss+1);
+        sam::last=1;
+        int L=strlen(ss+1);len[i]=L;
+        for (int j=1;j&lt;=L;j++){
+        	S[i].push_back(ss[j]);
+            sam::insert(ss[j]-'a',i);
+        }
+    }
+    int pos=1;
+    for (int i=1;i&lt;=n;i++){
+        pos=1;
+        for (int j=1;j&lt;=len[i];j++){
+            int x=S[i][j-1]-'a';
+            pos=sam::g[pos][x];
+            sam::update(pos,i);
+        }   
+    }
+    sam::doit();
+    for (int i=1;i&lt;=n;i++){
+    	pos=1;
+    	int ans=0;
+        for (int j=1;j&lt;=len[i];j++){
+            int x=S[i][j-1]-'a';
+            pos=sam::g[pos][x];
+            ans+=sam::c[pos];
+        }
+        printf(&quot;%lld &quot;,ans);
+    }
+    return 0;
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://horizonwind2004.github.io/post/cf960g-bandit-blues/">
+              <h3 class="post-title">
+                下一篇：CF960G Bandit Blues
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://horizonwind2004.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
