@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://horizonwind2004.github.io</id>
     <title>HorizonWind</title>
-    <updated>2020-06-23T05:41:50.531Z</updated>
+    <updated>2020-06-23T05:57:13.468Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://horizonwind2004.github.io"/>
     <link rel="self" href="https://horizonwind2004.github.io/atom.xml"/>
     <logo>https://horizonwind2004.github.io/images/avatar.png</logo>
     <icon>https://horizonwind2004.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HorizonWind</rights>
+    <entry>
+        <title type="html"><![CDATA[CERC2015 Frightful Formula]]></title>
+        <id>https://horizonwind2004.github.io/post/cerc2015-frightful-formula/</id>
+        <link href="https://horizonwind2004.github.io/post/cerc2015-frightful-formula/">
+        </link>
+        <updated>2020-06-23T05:54:52.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[树上拓扑最优化问题]]></title>
         <id>https://horizonwind2004.github.io/post/shu-shang-tuo-bu-zui-you-hua-wen-ti/</id>
@@ -71,12 +78,5 @@
         <link href="https://horizonwind2004.github.io/post/poi2007-klo/">
         </link>
         <updated>2020-06-22T08:19:08.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CF671D Roads in Yusland]]></title>
-        <id>https://horizonwind2004.github.io/post/cf671d-roads-in-yusland/</id>
-        <link href="https://horizonwind2004.github.io/post/cf671d-roads-in-yusland/">
-        </link>
-        <updated>2020-06-22T08:18:25.000Z</updated>
     </entry>
 </feed>
